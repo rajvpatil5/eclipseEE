@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Table in Thymeleaf</title>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+	integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX"
+	crossorigin="anonymous">
+</head>
+
+<body>
+	<div class="container">
+		<h2>Save Client</h2>
+		<!-- here th:object="${client}"  is model attribute-->
+		<form action="#" th:action="@{/client/save}" th:object="${client}"
+			method="post">
+			<input type="hidden" th:field="*{id}">
+			<input class="form-control mb-4 col-4" type="text" placeholder="First Name" th:field="*{firstName}"> 
+			<input class="form-control mb-4 col-4" type="text" placeholder="Last Name" th:field="*{lastName}"> 
+			<input class="form-control mb-4 col-4" type="text" placeholder="Email" th:field="*{email}">
+			<button class="btn btn-info col-2" type="submit">Save</button>
+		</form>
+	</div>
+
+</body>
+
+</html>

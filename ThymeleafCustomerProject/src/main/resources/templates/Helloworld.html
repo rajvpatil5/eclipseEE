@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Table in Thymeleaf</title>
+<style type="text/css">
+span{
+	display: block;
+	margin:4px;
+}
+</style>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+	integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX"
+	crossorigin="anonymous">
+</head>
+
+<body>
+	<h1>Employee Table</h1>
+
+	<div class="container">
+		<span>Straight from thymeleaf.... </span>
+		<a th:href="@{/client/showform}"
+			class="btn btn-primary btn-sm mb-3">Add Client</a>
+			
+		<table class="table table-bordered table-striped">
+			<thead class="thead-dark">
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="tempemp:${emplist}">
+					<td th:text="${tempemp.firstName}" />
+					<td th:text="${tempemp.lastName}" />
+					<td th:text="${tempemp.email}" />
+					<td><a
+						th:href="@{/client/showformforupdate(clientId=${tempemp.id})}"
+						class="btn btn-info btn-sm">update</a> 
+						<a
+						th:href="@{/client/delete(clientId=${tempemp.id})}"
+						class="btn btn-danger btn-sm"
+						onclick="if (!(confirm('Are you sure you want to delete this Client?'))) return false">delete</a>
+					</td>
+
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+
+</html>
